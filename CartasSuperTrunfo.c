@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-typedef struct {
+int main(){
 
-    // Define a uma estrutura chamada Carta onde são armazenados as informações das cartas.
+    // A seguir são definidas as variaveis necessárias para o preenchimento das cartas
 
     char Estado; // Nome do estado representado por uma letra de "A" a "H"
     char Codigo[4]; // Letra inicial do estado seguido de um numero ex: A01, A02, A03
@@ -11,86 +11,86 @@ typedef struct {
     float Area; // Área em km2
     float PIB; // Produto interno bruto da cidade
     int PontosTuristicos; // Quantidade de pontos turisticos da cidade
-} Carta;
 
-void readCarta(Carta *carta) {
+    char Estado2; // Nome do estado representado por uma letra de "A" a "H"
+    char Codigo2[4]; // Letra inicial do estado seguido de um numero ex: A01, A02, A03
+    char Cidade2[50]; // Nome da cidade
+    int Populacao2; // População da cidade
+    float Area2; // Área em km2
+    float PIB2; // Produto interno bruto da cidade
+    int PontosTuristicos2; // Quantidade de pontos turisticos da cidade
 
-    // Essa função lê os detalhes de cada carta que serão fornecidos pelo usuário e armazena em suas respectivas variáveis.
+    // A seguir são solicitados os dados para o preenchimento das cartas
+    // printf para imprimir a solicitação de dados
+    // scanf para armazenar os dados fornecidos pelo usuário
 
-    printf("Estado (Letra de 'A' a 'H'): \n");
-    scanf(" %c", &carta->Estado);
+    printf("PREENCHA OS DADOS DA PRIMEIRA CARTA: \n");
+    printf("\nCódigo do estado (Representado por uma letra de 'A' a 'H'): \n");
+    scanf(" %c", &Estado);
 
     printf("Código da carta (Ex: A01, A02): \n");
-    scanf("%s", carta->Codigo);
+    scanf("%s", Codigo);
 
     printf("Nome da cidade (Sem espaços): \n");
-    scanf("%s", carta->Cidade);
+    scanf("%s", Cidade);   
 
     printf("População da cidade: (Sem pontuação) \n"); 
-    // Não encontrei uma forma de colocar os dados numericos com pontuação
-    scanf("%d", &carta->Populacao);
+    scanf("%d", &Populacao);
 
-    printf("Área da cidade em km2: (Sem pontuação) \n"); 
-    // Não encontrei uma forma de colocar os dados numericos com pontuação
-    scanf("%f", &carta->Area);
+    printf("Área total da cidade em km2: (Sem pontuação) \n");
+    scanf("%f", &Area);
+
+    // Utilizei a instrução "Sem pontuação" pois ao colocar o numero com a pontuação o programa não me permite preencher os próximos dados.
 
     printf("PIB da cidade: \n");
-    scanf("%f", &carta->PIB);
+    scanf("%f", &PIB);
 
     printf("Quantidade de Pontos Turisticos: \n");
-    scanf("%d", &carta->PontosTuristicos);
-}
+    scanf("%d", &PontosTuristicos); 
 
-void printCarta(const Carta *carta) {
+    printf("\nPREENCHA OS DADOS DA SEGUNDA CARTA: \n");
+    printf("\nCódigo do estado (Representado por uma letra de 'A' a 'H'): \n");
+    scanf(" %c", &Estado2);
 
-    // Essa função imprime os detalhes de cada carta que foram fornecidos pelo usuário.
+    printf("Código da carta (Ex: A01, A02): \n");
+    scanf("%s", Codigo2);
 
-    printf("Código do estado: %c \n", carta->Estado);
-    printf("Código da Carta: %s \n", carta->Codigo);
-    printf("Nome da cidade: %s \n", carta->Cidade);
-    printf("População da cidade: %2d \n", carta->Populacao);
-    printf("Área da cidade em km2: %.2f \n", carta->Area);
-    printf("Produto interno bruto (PIB): %.2f \n", carta->PIB);
-    printf("Pontos turisticos: %d \n", carta->PontosTuristicos);
+    printf("Nome da cidade (Sem espaços): \n");
+    scanf("%s", Cidade2);
+
+    printf("População da cidade: (Sem pontuação) \n");
+    scanf("%d", &Populacao2);   
+
+    printf("Área total da cidade em km2: (Sem pontuação) \n");
+    scanf("%f", &Area2);
+
+    printf("PIB da cidade: \n");
+    scanf("%f", &PIB2);
+
+    printf("Quantidade de Pontos Turisticos: \n");
+    scanf("%d", &PontosTuristicos2);
+
+    // A seguir utilizamos o comando printf para imprimir os dados fornecidos pelo usuário
     
-}
+    printf("\nINFORMAÇÕES DA CARTA 01: \n");
+    printf("CÓDIGO DO ESTADO: %c \n", Estado);
+    printf("CÓDIGO DA CARTA: %s \n", Codigo);
+    printf("NOME DA CIDADE: %s \n", Cidade);
+    printf("POPULAÇÃO DA CIDADE: %2d \n", Populacao);
+    printf("ÁREA DA CIDADE EM KM2: %.2f \n", Area);
+    printf("PRODUTO INTERNO BRUTO (PIB): %.2f \n", PIB);
+    printf("PONTOS TURISTICOS: %d \n", PontosTuristicos);
 
-int main() {
-    Carta carta1, carta2;
-
-    // Esta é a função principal do programa.
-    // Declara duas estruturas que são chamadas de carta1 e carta.
-
-    printf("Preencha os dados da primeira carta:\n");
-    readCarta(&carta1);
-
-    // Solicita ao usuário que preencha os dados da primeira carta.
-
-    printf("\nPreencha os dados da segunda carta:\n");
-    readCarta(&carta2);
-
-    // Solicita ao usuário que preencha os dados da segunda carta.
-
-    printf("\nCARTA 1:\n");
-    printCarta(&carta1);
-
-    // Imprime os dados da primeira carta.
-
-    printf("\nCARTA 2:\n");
-    printCarta(&carta2);
-
-    // Imprime os dados da segunda carta.
-
-
-
-    // Tive muita dificuldade em realizar a formatação dos dados numéricos, não consegui colocar a pontuação nos números.
-    // Encontrei dificuldade também em realizar a leitura de strings com espaços, por isso optei por não utilizar espaços nos nomes das cidades.
-    // Não consegui encontrar uma forma de cadastrar duas cartas de forma individual, por isso busquei ajuda na internet.
-    // Os comandos typedef e struct foram utilizados para criar uma estrutura de dados que armazena as informações das cartas.
-    // O comando void foi utilizado para criar funções que não retornam valores.
-    // A função printCarta foi criada para imprimir os detalhes de cada carta de forma individual.
-    // A função readCarta foi criada para ler os detalhes de cada carta de forma individual.
-
+    printf("\nINFORMAÇÕES DA CARTA 02: \n");
+    printf("CÓDIGO DO ESTADO: %c \n", Estado2);
+    printf("CÓDIGO DA CARTA: %s \n", Codigo2);
+    printf("NOME DA CIDADE: %s \n", Cidade2);
+    printf("POPULAÇÃO DA CIDADE: %2d \n", Populacao2);
+    printf("ÁREA DA CIDADE EM KM2: %.2f \n", Area2);
+    printf("PRODUTO INTERNO BRUTO (PIB): %.2f \n", PIB2);
+    printf("PONTOS TURISTICOS: %d \n", PontosTuristicos2);
 
     return 0;
+
+
 }
